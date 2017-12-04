@@ -40,11 +40,11 @@ var server = net.createServer(function(c) {
       console.log('[ERROR] Connection refused, please check the IP address.');
     }
   });
-
-  time = setTimeOut(function() {
-    console.log('[ERROR] The client has exceeded the timeout value: ' + timeout);
-    return;
-  }, timeout);
+  // 
+  // time = setTimeOut(function() {
+  //   console.log('[ERROR] The client has exceeded the timeout value: ' + timeout);
+  //   return;
+  // }, timeout);
 
   // server.listen(portNumber, function() {
   //   address = server.address();
