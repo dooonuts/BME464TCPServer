@@ -1,7 +1,8 @@
 var net = require('net');
 var mysql = require('mysql');
 
-var portNumber = process.env.PORT||3000;
+const PORT = 5000;
+const ADDRESS = '127.0.0.1';
 var timer;
 var timeout = 5000;
 
@@ -49,6 +50,6 @@ var server = net.createServer(function(c) {
   //   address = server.address();
   //   console.log('The server is bound on %s', address);
   // });
-}).listen(5000);
+}).listen(PORT);
 
 console.log("Server is listening on port 5000");
