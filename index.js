@@ -1,5 +1,6 @@
 var net = require('net');
 var mysql = require('mysql');
+var controller = require('./controller.js');
 
 const PORT = 5000;
 const ADDRESS = '127.0.0.1';
@@ -26,6 +27,16 @@ var server = net.createServer(function(c) {
 
   c.on('data', function(data) {
     console.log(data);
+    controller.heart_data(data.toString(),function(err,heartdata){
+  		if(err)
+  		{
+  			console.log(err);
+  		}
+  		else{
+        console.log("Successfully Connected to Heart");
+        console.log(heartdata);
+  		}
+  	});
     // var res = decoder.decodeBuffer(data);
     /* decode sensor data and insert to the database  */
   });
@@ -40,7 +51,7 @@ var server = net.createServer(function(c) {
       console.log('[ERROR] Connection refused, please check the IP address.');
     }
   });
-  // 
+  //
   // time = setTimeOut(function() {
   //   console.log('[ERROR] The client has exceeded the timeout value: ' + timeout);
   //   return;
