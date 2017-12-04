@@ -1,0 +1,23 @@
+{
+  "name": "bme464tcpserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iruvdonuts/BME464TCPServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iruvdonuts/BME464TCPServer/issues"
+  },
+  "homepage": "https://github.com/iruvdonuts/BME464TCPServer#readme",
+  "dependencies": {
+    "mysql": "^2.15.0",
+    "net": "^1.0.2"
+  }
+}
