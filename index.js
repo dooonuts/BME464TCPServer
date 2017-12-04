@@ -26,6 +26,7 @@ var server = net.createServer(function(c) {
 
   c.on('data', function(data) {
     console.log(data);
+    console.log("Buffer says: " + data.toString());
     // var res = decoder.decodeBuffer(data);
     /* decode sensor data and insert to the database  */
   });
