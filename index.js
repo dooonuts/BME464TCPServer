@@ -6,6 +6,7 @@ const PORT = 5000;
 const ADDRESS = '127.0.0.1';
 var timer;
 var timeout = 5000;
+var globaldata = "";
 
 var server = net.createServer(function(c) {
 
@@ -27,16 +28,24 @@ var server = net.createServer(function(c) {
 
   c.on('data', function(data) {
     console.log("Buffer says: " + data.toString());
-    controller.heart_data(data.toString(),function(err,heartdata){
-  		if(err)
-  		{
-  			console.log(err);
-  		}
-  		else{
-        console.log("Successfully Connected to Heart");
-        console.log(heartdata);
-  		}
-  	});
+    globaldata=globaldata+data.toString();
+    console.log(globaldata);
+    var datastring = data.toString();
+    var newstring = new String("stop");
+    // var newstring = new String("stop\r\n"); Used for testing purposes only
+    if(datastring.valueOf() == newstring.valueOf()){
+      console.log("Got out of stop")
+      controller.heart_data(globaldata,function(err,heartdata){
+        if(err)
+        {
+          console.log(err);
+        }
+        else{
+          console.log("Successfully Connected to Heart");
+          console.log(heartdata);
+        }
+      });
+    }
   });
 
   c.on('error', function(err) {
